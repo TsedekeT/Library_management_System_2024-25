@@ -79,5 +79,81 @@
         <script src="./script/Member.js"></script>
         <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
       </body>
-      </html>
+      <script>
+        const BASE_URL = "http://localhost:7000/"
+        const LogOutBtn = document.getElementById("LogOut");
+        const BookDisplayLocation = document.getElementById("bookDisplay")
+        const editProfile = document.getElementById("addBookForm")
+
+        editProfile.addEventListener("submit", (e)=> {
+            e.preventDefault()
+            let ProfileData = new FormData(editProfile)
+            let ProfileObjectData = Object.fromEntries(ProfileData)
+            let bodyStr = JSON.stringify(ProfileObjectData)
+            fetch(BASE_URL + "auth/update/", {
+                method: "PATCH",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("Token")}`,
+                }
+            })
+            .then(res => res.json())
+            .then(res=> console.log(res))
+        })
+
+        LogOutBtn.addEventListener("click", () => {
+            localStorage.removeItem("Token")
+            window.location.href = "./home.html"
+        })
+        function handelClick (productId) {
+            fetch(BASE_URL + `products/${productId}`, {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("Token")}`,
+                }
+            })
+            .then(async res=> {
+                const jsonData = await res.json()
+                console.log(jsonData)
+                if(jsonData.book) {
+                    window.location.href = BASE_URL + "static/" + jsonData.book
+                }
+                //
+            })
+        } 
+
+        function listBooks() {
+            BookDisplayLocation.innerHTML = ""
+            fetch(BASE_URL + "products/", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("Token")}`,
+                }
+            })
+            .then(async res => {
+                if(res.status === 200) {
+                    const jsonData = await res.json()
+                    jsonData.forEach((product)=>{
+                        let tempElement = `
+                        <div id="product_${product._id}" class="book-item" onclick="handelClick('${product._id}')">
+                            <img class="" src="${BASE_URL + "static/" + product.image}" alt="Book Title 6">
+                            <h3>${product.bookName}</h3>
+                            <p>by ${product.name}</p>
+                        </div>
+                        `
+                        BookDisplayLocation.innerHTML += tempElement
+                    })
+                }
+                if(BookDisplayLocation.innerHTML.length === 0) {
+                    BookDisplayLocation.innerHTML =  `
+                        <div class="alert alert-success p-5">
+                            <h3 class="text-center"> There is No Book avaliable right now</h3>
+                        </div>`
+                }
+            })
+        }
+        document.addEventListener("DOMContentLoaded", 
+            listBooks()
+        )
+      </script>
+  </html>
   

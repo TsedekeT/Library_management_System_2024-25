@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librarian Dashboard</title>
+  <link rel="stylesheet" href="../CSS/Librarian.css">
+  <link rel="stylesheet" href="../CSS/home.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#home" class="logo"><img src="../img/EduShelf_  Managing Books with Ease.jpg" alt="EduShelf"><h1>EduShelf</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          ☰
+        </button>
+        <ul class="nav-links">
+          <li><a class="btn">HOME</a></li>
+          <li><button class="btn btn-danger" id="LogOut">LogOut</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="book-grid">
+      <div class="container">
+        <h2 class="text-center pt-5">Available Books</h2>
+        <div id="bookDisplay" class="grid"></div>
+      </div>
+    </section>
+    <div class="w-100 d-flex justify-content-center">
+      <button class="w-75 btn bg-primary-subtle btn-block" type="button" data-bs-toggle="modal" data-bs-target="#addBook">Add Books</button>
+    </div>
+
+    <section class="" id="approvals-section">
+      <h2 class="text-center py-5">Pending User Approvals</h2>
+      <div id="errorContainer" class="bg-gradient-danger text-center"></div>
+      <div class="px-4 d-flex flex-column " id="pending-users"></div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addBook" tabindex="-1" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Create A New Book</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addBookForm" enctype="multipart/form-data" class="form">
+            <div class="form-group">
+              <label for="name">Autor Name</label>
+              <input type="text" required class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter the name of the Author">
+            </div>
+            <div class="form-group">
+              <label for="name">category</label>
+              <select class="custom-select" id="category">
+                <option selected>Open this select menu</option>
+                <option value="mens">Life Style</option>
+                <option value="womens">Biography</option>
+                <option value="kids">Children & Youth</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bookName">Book Name</label>
+              <input type="text" class="form-control" name="bookName" id="bookName" placeholder="Enter book name" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Description</label>
+              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="">
+                <div class="input-group mt-3">
+                  <div class="custom-file">
+                    <input id="Image" type="file" name="Image" class="custom-file-input" accept="image/*" required>
+                    <label class="custom-file-label" for="Image">Select Image</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="">
+                <div class="input-group mt-3">
+                  <div class="custom-file">
+                    <input id="book" type="file" name="book" class="custom-file-input" accept=".pdf, .docx, .doc" required>
+                    <label class="custom-file-label" for="book">Select Book</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn bg-secondary-subtle" data-bs-dismiss="modal">Close</button>
+          <button type="submit" value="submit" class="btn bg-primary-subtle">Submit</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="editBook" tabindex="-1" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="updateForm" enctype="multipart/form-data" class="form">
+            <div class="form-group">
+              <label for="name">Autor Name</label>
+              <input type="text" class="form-control" id="nameEdit" name="nameEdit" aria-describedby="emailHelp" placeholder="Enter the name of the Author">
+            </div>
+            <div class="form-group">
+              <label for="name">category</label>
+              <select class="custom-select" id="categoryEdit">
+                <option selected>Open this select menu</option>
+                <option value="mens">Mens</option>
+                <option value="womens">Womens</option>
+                <option value="kids">Children</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" class="form-control" name="bookNameEdit" id="bookNameEdit" placeholder="Enter Price">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Description</label>
+              <textarea class="form-control" name="descriptionEdit" id="descriptionEdit" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="">
+                <div class="input-group mt-3">
+                  <div class="custom-file">
+                    <input id="ImageEdit" type="file" name="ImageEdit" class="custom-file-input" accept="image/*">
+                    <label class="custom-file-label" for="Image">Select Image</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="">
+                <div class="input-group mt-3">
+                  <div class="custom-file">
+                    <input id="bookEdit" type="file" name="bookEdit" class="custom-file-input" accept=".pdf, .docx, .doc">
+                    <label class="custom-file-label" for="book">Select Book</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn bg-secondary-subtle" data-bs-dismiss="modal">Close</button>
+          <button type="submit" value="submit" class="btn bg-primary-subtle">Submit</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Library Management System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./script/Librarian.js"></script> 
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../bootstrap/js/bsFileInput.min.js"></script>
+</body>
+</html>

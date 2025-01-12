@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Member Dashboard</title>
+      <link rel="stylesheet" href="../CSS/Member.css">
+      <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  </head>
+  <body>
+      <header>
+          <nav class="navbar">
+              <div class="container">
+                  <a href="#home" class="logo"><img src="../img/EduShelf_  Managing Books with Ease.jpg" alt="EduShelf"><h1>EduShelf</h1></a>
+                  <ul class="nav-links">
+                      <li><a href="#home" class="active">HOME</a></li>
+                      <li><a href="../HTML/home.html" id="LogOut">LogOut</a></li>
+                  </ul>
+              </div>
+          </nav>
+      </header>
+  
+      <main id="home" class="home-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to the EduShelf</h1>
+                <p> Managing Books with Ease</p>
+            </div>
+        </section>
+            <!-- Profile Section -->
+            <!-- <section id="profile-section">
+              <div id="profile">
+                <p><strong>Name:</strong> <span id="profile-name">John Doe</span></p>
+                <p><strong>Email:</strong> <span id="profile-email">john.doe@example.com</span></p>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#addBook">Edit Profile</button>
+              </div>
+            </section> -->
+            
+            <div class="modal fade" id="addBook" tabindex="-1" aria-hidden="true" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-center" id="exampleModalLabel">Create A New Book</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="addBookForm" class="form">
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" required class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter the name of the Author">
+                        </div>
+                        <div class="form-group">
+                          <label for="price">Email</label>
+                          <input type="text" class="form-control" name="price" id="price" placeholder="Enter Price" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                      <button type="button" class="btn bg-secondary-subtle" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" value="submit" class="btn bg-primary-subtle">Submit</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+  
+          <section class="book-grid">
+            <div class="container">
+                <h2>Available Books</h2>
+                <div id="bookDisplay" class="grid">
+                </div>
+            </div>            
+          </section>
+        </main>        
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Library Management System. All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="./script/Member.js"></script>
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+      </body>
+      </html>
+  

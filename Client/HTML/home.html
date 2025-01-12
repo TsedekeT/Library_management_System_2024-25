@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduShelf</title>
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container navCont">
+                <a href="#home" class="logo"><img src="../img/EduShelf_  Managing Books with Ease.jpg" alt="EduShelf"><h1>EduShelf</h1></a>
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    ☰
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">HOME</a></li>
+                    <li><a href="#About">ABOUT US</a></li>
+                    <li><a href="#register-section" id="registerNav">REGISTER</a></li>
+                    <li><a href="#login-section" id="loginNav">LOGIN</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home" class="home-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to the EduShelf</h1>
+                <p> Managing Books with Ease</p>
+                <h4>Want to be a Memebr? 👇</h4>
+                <a href="#" id="StartedBtn" class="cta">Get Started</a>
+            </div>
+
+        <section class="book-grid">
+            <div class="container">
+                <h2>Available Books</h2>
+                <div class="grid">
+                    <!-- Book Item -->
+                    <div class="book-item">
+                        <img src="../img/1984.png" alt="Book Title 1">
+                        <h3>Dreams and Stories</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/A Memoir of a Family and Culture in Crisis.png" alt="Book Title 2">
+                        <h3>Flight Book</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/Basic Engineering Mathematics.png" alt="Book Title 3">
+                        <h3>Life</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/Criminal Psychology.png" alt="Book Title 4">
+                        <h3>Winter</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/How Successful People Think.png" alt="Book Title 5">
+                        <h3>Be Modest</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/How to Write Better Essays.png" alt="Book Title 6">
+                        <h3>Report</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/Physical Chemistry.png" alt="Book Title 7">
+                        <h3>Annual Report</h3>
+                        <p>by Author Name</p>
+                    </div>
+                    <div class="book-item">
+                        <img src="../img/Resisting Happiness.png" alt="Book Title 8">
+                        <h3>Book Cover</h3>
+                            <p>by Author Name</p>
+                        </div>
+                    <div class="book-item">
+                        <img src="../img/Smart Thinking SKills.png" alt="Book Title 8">
+                        <h3>Flight Book</h3>
+                            <p>by Author Name</p>
+                        </div>
+                        <div class="book-item"> 
+                            <img src="../img/Space, TIme and Einsein.png" alt="Book Title 7">
+                            <h3>Annual Report</h3>
+                            <p>by Author Name</p>
+                          </div>
+                          <div class="book-item">
+                            <img src="../img/Speak to Win.png" alt="Book Title 8">
+                            <h3>Book Cover</h3>
+                            <p>by Author Name</p>
+                          </div>
+                          <div class="book-item">
+                            <img src="../img/The Rules of Work.png" alt="Book Title 8">
+                            <h3>Flight Book</h3>
+                            <p>by Author Name</p>
+                          </div>
+                    </div>
+
+
+                   
+                </div>            
+            </section>
+
+
+        <div id="About" class="about-section">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>
+                    Welcome to Library Management System (LibraryMS)! Our mission is to provide seamless
+                    management of library resources, allowing users to borrow, return, and explore books effortlessly.
+                </p>
+                <p>
+                    With a user-friendly platform, we aim to connect readers with knowledge while empowering
+                    library administrators to manage their collections efficiently.
+                </p>
+            </div>
+        </div>
+
+        <!-- Registration Section -->
+        <div id="register-section" class="modal">
+            <div class="container">
+                <h1>Register</h1>
+                <div id="errorContainerforRegistration" class="bg-gradient-danger text-center"></div>
+                <form class="form" id="registerForm">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                    </div>
+                    <!-- <h2>I am a</h2>
+                    <select id="role">
+                        <option value="Member">Member</option>
+                        <option value="Librarian">Librarian</option>
+                    </select> -->
+                    <button type="submit" id="registerSubmit" class="cta">Register</button>
+                    <p>Already have an account? <a href="#" id="toLogin">Login here</a></p>
+                </form>
+                <!-- <div class="third-party-login">
+                    <button type="button" class="icon-btn">
+                        <img src="../img/Google.png" alt="Google Logo">
+                        <a href="https://accounts.google.com/"> Login with Google</a>
+                    </button>
+                    <button type="button" class="icon-btn">
+                        <img src="../img/Facebook.png" alt="Facebook Logo">
+                        <a href="https://www.facebook.com/login.php/"> Login with Facebook</a>
+                    </button>
+                    <button type="button" class="icon-btn">
+                        <img src="../img/Linkedin.png" alt="LinkedIn Logo">
+                        <a href="https://www.linkedin.com/login"> Login with LinkedIn</a>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+        
+        <!-- Login Section -->
+        <div id="login-section" class="modal">
+            <div class="container ">
+                <h1>Login</h1>
+                <div id="errorContainer" class="bg-gradient-danger text-center"></div>
+                <form class="form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" id="loginSubmit" class="cta">Login</button>
+                    <p>Don't have an account? <a href="#" id="toRegistration">Register here</a></p>
+                </form>
+                  </div>
+    </main>        
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Library Management System. All rights reserved.</p>
+            </div>
+        </footer>
+        <!-- Include Popper.js -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script> -->
+        <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+         <script src="../script/script.js"></script>
+    </body>
+</html>

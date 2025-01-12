@@ -1,0 +1,373 @@
+/* Global Styles */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #ecf0f1;
+  --accent-color: #3498db;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+main{
+  background: var(--secondary-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.navbar .logo {
+  display: flex; /* Make logo container a flexbox */
+  align-items: center; /* Center vertically */
+}
+
+.navbar .logo img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out;
+  display: inline;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.navbar .logo img:hover {
+  transform: scale(1.1);
+}
+
+.navbar h1 {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0; /* Remove default margin */
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar .nav-links a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Initially hide the nav-links on smaller screens */
+.nav-links {
+  display: flex; /* Default display for large screens */
+  flex-direction: row; /* Horizontal layout for large screens */
+}
+
+/* For the menu button */
+.menu-toggle {
+  display: none; /* Hide the menu toggle button on large screens */
+}
+
+/* Hero Section */
+.hero {
+  background: var(--secondary-color);
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.hero p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+  width: 60%;
+}
+
+.cta:hover {
+  background: #1abc9c;
+}
+
+.cta1 {
+  display: inline-block;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  margin-top: 20px;
+  background: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+  width: 60%;
+}
+.cta1:hover {
+  background: #1abc9c;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--primary-color);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border: 1px solid var(--secondary-color);
+  }
+
+  .navbar .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    margin-top: 10px;
+    display: flex;
+  }
+}
+
+
+.book-item-hidden {
+  display: none; 
+}
+
+/* Book Grid Section */
+.book-grid {
+  padding: 2rem 0;
+  background: var(--secondary-color);
+  text-align: center;
+}
+
+.book-grid h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+  gap: 1.5rem; /* Space between items */
+}
+
+.book-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.book-item h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.book-item p {
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Book Grid */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 column per row */
+  }
+}
+
+#About{
+  background: var(--secondary-color);
+  text-align: center;
+  padding: 4rem 0;
+  justify-content: center;
+}
+
+/* Blur effect on the home page */
+#home.blurred {
+  filter: blur(5px); /* Apply blur effect */
+  pointer-events: none; /* Disable interactions with the blurred content */
+}
+
+/* Modal styles */
+.modal {
+  display: none;  /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: black;
+  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;  /* Ensure modal is on top of other elements */
+}
+
+.modal .container {
+  background: url(../img/EduShelf_\ \ Managing\ Books\ with\ Ease.jpg);
+  padding: 20px;
+  max-width: 500px;
+  height: auto;
+  margin: auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.home-section.blurred {
+  filter: blur(5px);  /* Blur the background when the modal is open */
+}
+
+.modal .container input,
+.modal .container select {
+  background: url(../img/EduShelf_\ \ Managing\ Books\ with\ Ease.jpg);
+  width: 90%;
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal .container .cta {
+  width: 90%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #3c6a94;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal .container .cta:hover {
+  background-color: #0885f9;
+}
+
+#register-section,
+#login-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Third-party login buttons */
+.modal .login-with {
+  margin-top: 10px;
+  display: flex;
+}
+
+.modal .third-party-login {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.modal .third-party-login button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 32%;
+  transition: transform 0.3s;
+}
+
+.modal .third-party-login button:hover {
+  transform: scale(1.05);
+}
+
+.modal .icon-btn {
+  background: url(../img/EduShelf_\ \ Managing\ Books\ with\ Ease.jpg);
+  border: #ddd solid 1px;
+}
+
+.modal .third-party-login button img {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.modal .third-party-login a {
+  color: white;
+}

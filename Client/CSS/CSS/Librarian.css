@@ -1,0 +1,230 @@
+/* General Styles */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #ecf0f1;
+  --accent-color: #3498db;
+  --text-color: #333;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+
+.navbar {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.navbar .logo {
+  display: flex; /* Make logo container a flexbox */
+  align-items: center; /* Center vertically */
+}
+
+.navbar .logo img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out;
+  display: inline;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.navbar .logo img:hover {
+  transform: scale(1.1);
+}
+
+.navbar h1 {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0; /* Remove default margin */
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar .nav-links a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Initially hide the nav-links on smaller screens */
+.nav-links {
+  display: flex; /* Default display for large screens */
+  flex-direction: row; /* Horizontal layout for large screens */
+}
+
+/* For the menu button */
+.menu-toggle {
+  display: none; /* Hide the menu toggle button on large screens */
+}
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: flex;
+    flex-direction: column;
+    background: var(--primary-color);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border: 1px solid var(--secondary-color);
+  }
+
+  .navbar .nav-links.active {
+    display: flex;
+  }
+}
+
+/* Book Grid Section */
+.book-grid {
+  padding: 2rem 0;
+  background: #f0f0f0; /* Light background */
+  text-align: center;
+}
+
+.book-grid h2 {
+  margin-bottom: 1.5rem;
+  color: #333; /* Darker grey */
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+  gap: 1.5rem; /* Space between items */
+}
+
+.book-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.book-item h3 {
+  font-size: 1.2rem;
+  color: #333; /* Darker grey */
+  margin-bottom: 0.5rem;
+}
+
+.book-item p {
+  color: #666; /* Grey for paragraph text */
+  font-size: 1rem;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Book Grid */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 column per row */
+  }
+}
+
+/* Button Styles */
+.edit-btn,
+.delete-btn,
+.cta {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.edit-btn {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333; /* Dark background */
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}

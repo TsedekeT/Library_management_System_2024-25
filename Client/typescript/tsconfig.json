@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "target": "es5", // or es6, es2017, etc.
+    "lib": ["es2019", "dom"],
+    // other options
+  }
+}
